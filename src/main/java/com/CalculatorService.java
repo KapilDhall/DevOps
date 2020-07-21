@@ -13,6 +13,45 @@ public class CalculatorService {
 	}
 	*/
 	
+	public int add(int a, int b) {
+		return a + b;
+	}
+	
+	public int difference(int a, int b) {
+		return a - b;
+	}
+	
+	public int multiplication(int a, int b) {
+		return a * b;
+	}
+	
+	public double division(double a, double b) {
+		if (b == 0) 
+		{
+			throw new IllegalArgumentException("We cannot divide by 0");
+		}
+		return a/b;
+	}
+	
+	public int cube(int a)
+	{
+		return a * a* a;
+	}
+	
+	public int findMaximum(int values[]) {
+		
+		int maximum = values[0];
+		
+		for(int i=1; i<values.length;i++)
+		{
+			if (values[i] > maximum) {
+				maximum = values[i];
+			}
+		}
+		
+		return maximum;			
+	}
+	
 	@GetMapping("/sum")
 	public int sum() {
 		return 10+20;
