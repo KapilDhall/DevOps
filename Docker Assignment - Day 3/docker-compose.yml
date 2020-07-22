@@ -1,0 +1,11 @@
+version: '3'
+services:
+    web:
+      image: kapildhall/new-app:1.0
+      ports:
+       - 9292:8080
+
+    db:
+      image: mysql:latest
+      environment:
+        MYSQL_ROOT_PASSWORD: Password
