@@ -1,0 +1,16 @@
+node{
+    
+    stage('git checkout'){
+        git 'https://github.com/KapilDhall/webapp.git'
+    }
+    
+    stage('code build & test'){
+        def mavenHome = tool name: 'maven-3' , type: 'maven'
+        bat(/"${mavenHome}"\bin\mvn clean package/)
+    }
+    
+    stage('code deploy'){
+        deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://localhost:8888')], contextPath: 'pipeline', war: '**/*.war'
+    }
+    
+}
